@@ -2,11 +2,11 @@
 English:
 
  #### Programming assignment: The final task of the course ####
-You need to write a C++ program that implements a simple database (abbreviated as "DB"). The program will communicate with the user through standard input and output (streams stdin and stdout).
+You need to write a C++ program that implements a simple database (abbreviated as "DB"). The program will communicate with the user through standard input and output (streams *stdin* and *stdout*).
 
-We will store in our database pairs of the following form: date, event. Define date as a string the form Year-Month-Day, where Year is number from 0 to 9999 inclusive, Month - number of month from 1 to 12 inclusive, Day - number of day from 1 to 31 inclusive.
+We will store in our database pairs of the following form: date, event. Define date as a string the form *Year-Month-Day*, where *Year* is number from 0 to 9999 inclusive, *Month* - number of month from 1 to 12 inclusive, *Day* - number of day from 1 to 31 inclusive.
 
-Year, Month and Day are always separated by exactly one hyphen (-) and no other character. Define event as a string of arbitrary text characters without separators (spaces, tabs, etc.). An event cannot be an empty string. Many different events may occur on the same date - the database must be able to save them all. Identical events occurring on the same day do not need to be saved - only one of them needs to be saved.
+*Year*, *Month* and *Day* are always separated by exactly one hyphen (-) and no other character. Define event as a string of arbitrary text characters without separators (spaces, tabs, etc.). An event cannot be an empty string. Many different events may occur on the same date - the database must be able to save them all. Identical events occurring on the same day do not need to be saved - only one of them needs to be saved.
 
 Our database must understand certain commands to be able to interact with it:
 
@@ -19,33 +19,34 @@ Our database must understand certain commands to be able to interact with it:
 ```
 All commands, dates and events are separated by spaces when entered. The commands are read from the standard input. There can be exactly one command per line, but multiple commands can be entered on multiple lines. Blank lines may also be entered - these must be ignored and new commands will continue to be processed on subsequent lines.
 
-Adding an event
-When adding an event, the database must memorize it and then display it when searching (using the Find command) or printing (using the Print command). If it is entered correctly, the program must not display anything.
+##### Adding an event #####
+When adding an event, the database must memorize it and then display it when searching (using the *Find* command) or printing (using the *Print* command). If it is entered correctly, the program must not display anything.
 
-Deleting events
-You can delete only previously added events. If the event is found and removed, the program should output the "Deleted successfully" string (without inverted commas). If the event is not found on the specified date the "Event not found" string (without inverted commas) should be output.
+##### Deleting events #####
+You can delete only previously added events. If the event is found and removed, the program should output the *«Deleted successfully»*  (without inverted commas). If the event is not found on the specified date the  *«DEvent not found»* string (without inverted commas) should be output.
 
-Deleting multiple events
-This command removes all previously added events on a specified date. The program should always output the line "Deleted N events" where N is the number of all found and deleted events. N may be equal to zero if there were no events on the specified date.
+##### Deleting multiple events #####
+This command removes all previously added events on a specified date. The program should always output the line *«Deleted N events»* where *N* is the number of all found and deleted events. N may be equal to zero if there were no events on the specified date.
 
-Search for events
+##### Search for events #####
 Look for and print the previously added events on the specified date. The program should print only the events themselves, one per line. The events have to be sorted in ascending order of the lines compared to each other (string type).
 
-Print all events
-This command can be used to display the full content of our database. The program must print all Date Event pairs, one per line. All pairs must be sorted by date and events within one date must be sorted in ascending order of comparison of lines to each other (string type). Dates must be formatted in a special way: YYYY-MM-DD, where Y, M, D are the digits of the year, month and day respectively. If any number has fewer digits, it should be padded with zeros, for example, 0001-01-01 is the first of January of the first year.
+##### Print all events #####
+This command can be used to display the full content of our database. The program must print all *Date Event* pairs, one per line. All pairs must be sorted by date and events within one date must be sorted in ascending order of comparison of lines to each other (*string* type). Dates must be formatted in a special way:*YYYY-MM-DD*, where *Y*, *M*, *D* are the digits of the year, month and day respectively. If any number has fewer digits, it should be padded with zeros, for example, 0001-01-01 is the first of January of the first year.
 
-Handling input errors
-If a user has entered an unknown command, the program must report this by outputting the "Unknown command: COMMAND" string, where COMMAND is the command entered by the user. The command is the first word in the string (before a space).
+##### Handling input errors #####
+If a user has entered an unknown command, the program must report this by outputting the *«Unknown command: COMMAND»*, where *COMMAND* is the command entered by the user. The command is the first word in the string (before a space).
 
-If the user entered a date in the wrong format where it was expected, the program should print "Wrong date format: DATE", where DATE is what the user entered instead of the date (before the space).
+If the user entered a date in the wrong format where it was expected, the program should print *«Wrong date format: DATE»*, where *DATE* is what the user entered instead of the date (before the space).
 
 If the date format is correct, but the date itself is incorrect, it should print a more specific problem:
 
-"Month value is invalid: MONTH", where MONTH is an invalid month number, e.g. 13 or 0.
-"Day value is invalid: DAY", where DAY is an invalid day number in the month, for example 39 or 0.
-The year value does not need to be checked separately.
-It is not necessary to check the calendar correctness of dates: the number of days in each month is 31, leap years do not need to be taken into account.
-If both month and day are incorrect, one error message per month must be printed.
+* *«Month value is invalid: MONTH»* ,  where *MONTH* is an invalid month number, e.g. 13 or 0.
+* *«Day value is invalid: DAY»*, where *DAY* is an invalid day number in the month, for example 39 or 0.
+* The year value does not need to be checked separately.
+* It is not necessary to check the calendar correctness of dates: the number of days in each month is 31, leap years do not need to be taken into account.
+* If both month and day are incorrect, one error message per month must be printed.
+
 After any error message is entered and printed the program should terminate.
 
 ##### Examples #####
@@ -80,7 +81,8 @@ Month value is invalid: 13
 
 Необходимо написать программу на С++, которая реализует работу с простой базой данных (сокращённо «БД»). Программа будет общаться с пользователем через стандартный ввод и вывод (потоки *stdin* и *stdout*).
 
-Будем хранить в нашей БД пары вида: дата, событие. Определим дату как строку вида *Год-Месяц-День*, где *Год* — это число от 0 до 9999 включительно, *Месяц* — это номер месяца от 1 до 12 включительно, *День* — это номер дня от 1 до 31 включительно.
+Будем хранить в нашей БД пары вида: дата, событие. Определим дату как строку вида *Год-Месяц-День*, 
+*Год* — это число от 0 до 9999 включительно, *Месяц* — это номер месяца от 1 до 12 включительно, *День* — это номер дня от 1 до 31 включительно.
 
 *Год*, *Месяц* и *День* всегда разделяются ровно одним символом дефиса (-) и никаким другим. Событие определим как строку из произвольных печатных символов без разделителей внутри (пробелов, табуляций и пр.). Событие не может быть пустой строкой. В одну и ту же дату может произойти много разных событий — БД должна суметь их все сохранить. Одинаковые события, произошедшие в один и тот же день сохранять не нужно — достаточно сохранить только одно из них.
 
